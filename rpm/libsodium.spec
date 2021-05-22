@@ -29,7 +29,6 @@ make check
 rm -rf %{buildroot}
 cd libsodium-stable
 %make_install
-ls -lR %{buildroot}
 
 %post
 /sbin/ldconfig
