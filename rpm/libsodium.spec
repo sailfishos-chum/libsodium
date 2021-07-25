@@ -1,10 +1,13 @@
 Name:       libsodium
-Version:    1.0.18.stable
+Version:    1.0.18
 Release:    1
 Summary:    A modern, portable, easy to use crypto library.
 Group:      Applications/Utilities
 URL:        https://libsodium.org/
 License:    ISC
+Source: %{name}-%{version}.tar.gz
+
+BuildRequires: gcc libtool autoconf automake
 
 %description
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
@@ -16,25 +19,24 @@ Requires:   %{name} = %{version}-%{release}
 %description devel
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
 
+%prep
+%setup -q -n %{name}-%{version}/libsodium
+
 %build
-cd libsodium-stable
+DO_NOT_UPDATE_CONFIG_SCRIPTS=1 ./autogen.sh
 %configure
-make
+%{__make} %{?_smp_mflags}
 
 %check
-cd libsodium-stable
 make check
 
 %install
 rm -rf %{buildroot}
-cd libsodium-stable
 %make_install
 
-%post
-/sbin/ldconfig
+%post -n libsodium -p /sbin/ldconfig
 
-%postun
-/sbin/ldconfig
+%postun -n libsodium -p /sbin/ldconfig
 
 %clean
 rm -rf %{buildroot}

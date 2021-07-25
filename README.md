@@ -1,5 +1,11 @@
 # Sailfish OS RPM Spec for libsodium
 
+This is based on packaging work of aerique and extended for
+compilation at OBS. Build is included into Chum repositories.
+
+Below, the original README for building the library using aerique
+approach.
+
 This RPM spec file is for compiling `libsodium` and `libsodium-devel` for
 Sailfish OS and specifically for the `aarch64` architecture. (It has only been
 tested on `aarch64`.)
