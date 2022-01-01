@@ -12,12 +12,18 @@ BuildRequires: gcc libtool autoconf automake
 %description
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
 
+Custom:
+  Repo: https://github.com/jedisct1/libsodium
+
 %package devel
 Summary:    Development headers and libraries for libsodium.
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
+
+Custom:
+  Repo: https://github.com/jedisct1/libsodium
 
 %prep
 %setup -q -n %{name}-%{version}/libsodium
