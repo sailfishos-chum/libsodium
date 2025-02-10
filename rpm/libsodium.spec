@@ -30,11 +30,8 @@ Custom:
 
 %build
 DO_NOT_UPDATE_CONFIG_SCRIPTS=1 ./autogen.sh
-%configure
-%{__make} %{?_smp_mflags}
-
-%check
-make check
+%configure --disable-static
+%{make_build}
 
 %install
 rm -rf %{buildroot}
