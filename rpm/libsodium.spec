@@ -23,6 +23,7 @@ Requires:   %{name} = %{version}-%{release}
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
 
 Custom:
+  PackagingRepo: https://github.com/sailfishos-chum/libsodium
   Repo: https://github.com/jedisct1/libsodium
 
 %prep
