@@ -38,22 +38,16 @@ DO_NOT_UPDATE_CONFIG_SCRIPTS=1 ./autogen.sh
 make check
 
 %install
-rm -rf %{buildroot}
 %make_install
 
 %post -n libsodium -p /sbin/ldconfig
 
 %postun -n libsodium -p /sbin/ldconfig
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,-)
 %{_libdir}/libsodium.so*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/sodium.h
 %{_includedir}/sodium/*.h
 %{_libdir}/pkgconfig/libsodium.pc
