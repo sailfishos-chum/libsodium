@@ -1,5 +1,5 @@
 Name:       libsodium
-Version:    1.0.18
+Version:    1.0.20
 Release:    1
 Summary:    A modern, portable, easy to use crypto library.
 Group:      Applications/Utilities
@@ -23,6 +23,7 @@ Requires:   %{name} = %{version}-%{release}
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
 
 Custom:
+  PackagingRepo: https://github.com/sailfishos-chum/libsodium
   Repo: https://github.com/jedisct1/libsodium
 
 %prep
@@ -34,22 +35,16 @@ DO_NOT_UPDATE_CONFIG_SCRIPTS=1 ./autogen.sh
 %{make_build}
 
 %install
-rm -rf %{buildroot}
 %make_install
 
 %post -n libsodium -p /sbin/ldconfig
 
 %postun -n libsodium -p /sbin/ldconfig
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,-)
 %{_libdir}/libsodium.so*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/sodium.h
 %{_includedir}/sodium/*.h
 %{_libdir}/pkgconfig/libsodium.pc
