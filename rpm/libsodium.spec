@@ -42,9 +42,10 @@ DO_NOT_UPDATE_CONFIG_SCRIPTS=1 ./autogen.sh
 %postun -n libsodium -p /sbin/ldconfig
 
 %files
-%{_libdir}/libsodium.so*
+%{_libdir}/libsodium.so.*
 
 %files devel
 %{_includedir}/sodium.h
 %{_includedir}/sodium/*.h
+%{_libdir}/libsodium.so
 %{_libdir}/pkgconfig/libsodium.pc
