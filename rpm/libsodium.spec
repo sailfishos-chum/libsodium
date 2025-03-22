@@ -13,6 +13,7 @@ BuildRequires: gcc libtool autoconf automake
 Sodium is a new, easy-to-use software library for encryption, decryption, signatures, password hashing and more.
 
 Custom:
+  PackagingRepo: https://github.com/sailfishos-chum/libsodium
   Repo: https://github.com/jedisct1/libsodium
 
 %package devel
@@ -42,9 +43,10 @@ DO_NOT_UPDATE_CONFIG_SCRIPTS=1 ./autogen.sh
 %postun -n libsodium -p /sbin/ldconfig
 
 %files
-%{_libdir}/libsodium.so*
+%{_libdir}/libsodium.so.*
 
 %files devel
 %{_includedir}/sodium.h
 %{_includedir}/sodium/*.h
+%{_libdir}/libsodium.so
 %{_libdir}/pkgconfig/libsodium.pc
