@@ -1,5 +1,5 @@
 Name:       libsodium
-Version:    1.0.20
+Version:    1.0.22
 Release:    1
 Summary:    A modern, portable, easy to use crypto library.
 Group:      Applications/Utilities
